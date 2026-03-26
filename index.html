@@ -3,214 +3,371 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <meta name="description" content="Gruhapravesh - Celestial Housewarming Ceremony">
-    <title>Gruhapravesh | Celestial Housewarming Ceremony</title>
+    <meta name="description" content="Disha's Gruhapravesh - Celestial Housewarming Ceremony">
+    <title>Disha's Gruhapravesh | Celestial Housewarming Ceremony</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 
-    <!-- Premium Loader -->
-    <div id="loader" class="loader">
-        <div class="loader-ring"></div>
-        <div class="loader-lotus">🪷</div>
-        <p class="loader-text">Blessings are loading...</p>
-    </div>
-
-    <!-- Background Image Layer -->
-    <div class="bg-image-layer"></div>
-    
-    <!-- Animated Particle Canvas -->
-    <canvas id="particleCanvas" class="particle-canvas"></canvas>
-    
-    <!-- Floating Orbs -->
-    <div class="floating-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="orb orb-4"></div>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-icon">🏠</span>
-                <span>Gruhapravesh</span>
-            </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Welcome</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
-                <a href="#blessings" class="nav-link">Blessings</a>
-                <a href="#location" class="nav-link">Location</a>
-            </div>
-            <div class="nav-toggle" id="navToggle">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-bg-glow"></div>
-            <div class="hero-container">
-                <div class="hero-badge">✨ Sacred Invitation ✨</div>
-                <h1 class="hero-title">
-                    <span class="title-line">Housewarming</span>
-                    <span class="title-line-glow">Ceremony</span>
-                </h1>
-                <p class="hero-subtitle">With joy and gratitude, we invite you to bless our new home</p>
-                
-                <div class="hero-details">
-                    <div class="detail-card">
-                        <span class="detail-icon">📅</span>
-                        <span>Monday, 20 April 2026</span>
-                    </div>
-                    <div class="detail-card">
-                        <span class="detail-icon">📍</span>
-                        <span>Kanthmoole Madatharu House,Vittal</span>
-                    </div>
-                    <div class="detail-card">
-                        <span class="detail-icon">🕊️</span>
-                        <span>11:00 AM onwards | Blessings & Feast</span>
+    <!-- Modern Trending Loader Animation -->
+    <div id="logoLoader" class="logo-loader">
+        <div class="loader-wrapper">
+            <!-- Main Spinner -->
+            <div class="spinner-container">
+                <div class="spinner"></div>
+                <div class="spinner-orbit"></div>
+                <div class="spinner-core">
+                    <div class="loader-diya" aria-hidden="true">
+                        <span class="loader-diya-flame"></span>
+                        <span class="loader-diya-bowl"></span>
                     </div>
                 </div>
-
-                <div class="hero-buttons">
-                    <button class="btn btn-primary" id="directionsBtn">
-                        <span class="btn-icon">🧭</span>
-                        Get Directions
-                        <span class="btn-glow"></span>
-                    </button>
-                    <button class="btn btn-secondary" id="galleryNavBtn">
-                        <span class="btn-icon">🎆</span>
-                        View Gallery
-                        <span class="btn-glow"></span>
-                    </button>
-                </div>
-
-                <div id="locationStatus" class="location-status"></div>
-                <div id="distancePreview" class="distance-preview"></div>
             </div>
             
-            <!-- Floating Diya (Lamp) Animation -->
-            <div class="floating-diya">
-                <div class="diya-body"></div>
-                <div class="diya-flame"></div>
-                <div class="diya-glow"></div>
+            <!-- Floating Dots -->
+            <div class="floating-dots">
+                <div class="dot dot-1"></div>
+                <div class="dot dot-2"></div>
+                <div class="dot dot-3"></div>
+                <div class="dot dot-4"></div>
             </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section id="gallery" class="gallery">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">Our Sacred Space</span>
-                    <h2 class="section-title">Home Gallery</h2>
-                    <p class="section-subtitle">Glimpses of love, light, and new beginnings</p>
+            
+            <!-- Text -->
+            <div class="loader-text-container">
+                <h1 class="loader-title">Disha's Gruhapravesh</h1>
+                <p class="loader-subtitle">Loading your celebration...</p>
+                <div class="loader-stage" id="loaderStage">Preparing blessings and lights</div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
                 </div>
-                
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Gallery items will be populated by JS -->
+                <div class="progress-meta">
+                    <span class="progress-percent">0%</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <!-- Blessings Section -->
-        <section id="blessings" class="blessings">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">Share Your Heart</span>
-                    <h2 class="section-title">Digital Blessings</h2>
-                    <p class="section-subtitle">Your warm wishes make our home truly special</p>
+    <!-- Main Website Content (Directly after loader) -->
+    <div id="mainContent" class="main-website">
+        
+        <!-- Background Elements -->
+        <div class="bg-image-layer"></div>
+        <div class="bg-gradient-drift"></div>
+        <div class="gold-pattern-overlay"></div>
+        <div class="swastika-pattern"></div>
+        <div class="swastika-ornament"></div>
+        <div class="swastika-ornament-left"></div>
+        <div class="atmosphere-sweep"></div>
+        
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        
+        <div class="floating-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+        </div>
+
+        <div class="floating-symbols" aria-hidden="true">
+            <span class="floating-symbol symbol-1"><i class="fas fa-om"></i></span>
+            <span class="floating-symbol symbol-2"><i class="fas fa-spa"></i></span>
+            <span class="floating-symbol symbol-3"><i class="fas fa-dharmachakra"></i></span>
+            <span class="floating-symbol symbol-4"><i class="fas fa-hands-praying"></i></span>
+            <span class="floating-symbol symbol-5"><i class="fas fa-spa"></i></span>
+            <span class="floating-symbol symbol-6"><i class="fas fa-star"></i></span>
+        </div>
+        
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon">🏠</span>
+                    <span>Disha's Gruhapravesh</span>
                 </div>
-                
-                <div class="blessings-wrapper">
-                    <div class="blessings-form-card">
-                        <form id="blessingForm" class="blessing-form">
-                            <div class="form-group">
-                                <label>Your Name</label>
-                                <input type="text" id="guestName" placeholder="Enter your name" required>
-                                <div class="input-focus-effect"></div>
+                <div class="nav-menu">
+                    <a href="#home" class="nav-link">Welcome</a>
+                    <a href="#countdown" class="nav-link">Celebration</a>
+                    <a href="#route" class="nav-link">Route</a>
+                    <a href="#familytree" class="nav-link">Family Tree</a>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <div class="hero-bg-glow"></div>
+                <div class="floating-diya floating-diya-left">
+                    <div class="diya-body"></div>
+                    <div class="diya-flame"></div>
+                    <div class="diya-glow"></div>
+                </div>
+                <div class="floating-diya">
+                    <div class="diya-body"></div>
+                    <div class="diya-flame"></div>
+                    <div class="diya-glow"></div>
+                </div>
+                <div class="hero-container">
+                    <div class="hero-badge">✨ Sacred Invitation ✨</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Disha's</span>
+                        <span class="title-line-glow">Housewarming Ceremony</span>
+                    </h1>
+                    <p class="hero-subtitle">With joy and gratitude, we invite you to bless our new home</p>
+                    <div class="hero-typewriter" aria-live="polite">
+                        <span class="typewriter-prefix">Celebrating</span>
+                        <span class="typewriter-text" id="typewriterText"></span>
+                        <span class="typewriter-cursor" aria-hidden="true"></span>
+                    </div>
+                    
+                    <div class="hero-details">
+                        <div class="detail-card">
+                            <span class="detail-icon">📅</span>
+                            <span>Monday, 20 April 2026</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-icon">📍</span>
+                            <span>Kanthmoole Madatharu House, Vittal</span>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-icon">🕊️</span>
+                            <span>8:00 AM onwards | Blessings & Feast</span>
+                        </div>
+                    </div>
+
+                    <div class="today-date">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Today is Monday, 20 April 2026</span>
+                        <i class="fas fa-dharmachakra"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Countdown Section -->
+            <section id="countdown" class="countdown-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"><i class="fas fa-hourglass-half"></i> Countdown to Celebration</span>
+                        <h2 class="section-title">Ceremony Begins In</h2>
+                    </div>
+                    <div class="countdown-3d-card">
+                        <div class="countdown-timer" id="countdownTimer">
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="days">00</div>
+                                <div class="countdown-label">Days</div>
                             </div>
-                            <div class="form-group">
-                                <label>Your Blessing</label>
-                                <textarea id="blessingMsg" rows="4" placeholder="Share your heartfelt wishes..."></textarea>
-                                <div class="input-focus-effect"></div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="hours">00</div>
+                                <div class="countdown-label">Hours</div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-full">
-                                <span class="btn-icon">💫</span>
-                                Submit Blessing
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="minutes">00</div>
+                                <div class="countdown-label">Minutes</div>
+                            </div>
+                            <div class="countdown-separator">:</div>
+                            <div class="countdown-item">
+                                <div class="countdown-number" id="seconds">00</div>
+                                <div class="countdown-label">Seconds</div>
+                            </div>
+                        </div>
+                        <div class="event-date">
+                            <i class="fas fa-calendar-alt"></i> Monday, 20 April 2026 | 8:00 AM onwards
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Route & Google Maps Section -->
+            <section id="route" class="route-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"><i class="fas fa-map-marked-alt"></i> Find Your Way</span>
+                        <h2 class="section-title">Journey to Our Home</h2>
+                        <p class="section-subtitle">Let us guide you to the celebration</p>
+                    </div>
+                    
+                    <div class="route-container">
+                        <div class="location-card">
+                            <div class="location-icon"><i class="fas fa-home"></i></div>
+                            <h3>Venue Address</h3>
+                            <p>Kanthmoole Madatharu House, Vittal</p>
+                            <div class="timing-info">
+                                <i class="fas fa-clock"></i> 8:00 AM - 8:00 PM
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="maps-card">
+                            <div class="maps-icon">
+                                <i class="fab fa-google"></i> <i class="fas fa-map"></i>
+                            </div>
+                            <h3>Google Maps Integration</h3>
+                            <div class="distance-calculator">
+                                <div id="locationStatus" class="location-status">
+                                    <i class="fas fa-location-dot"></i> Click to find your route
+                                </div>
+                                <div id="distanceDisplay" class="distance-display"></div>
+                                <div id="etaDisplay" class="eta-display"></div>
+                            </div>
+                            <button class="route-btn" id="getDirectionsBtn">
+                                <i class="fas fa-directions"></i>
+                                Get Distance & Route
+                                <span class="btn-glow"></span>
                             </button>
-                        </form>
-                        <div id="formFeedback" class="form-feedback"></div>
-                    </div>
-                    
-                    <div class="blessings-list-card">
-                        <h3>Recent Blessings <span class="blessing-count" id="blessingCount">0</span></h3>
-                        <div id="blessingsList" class="blessings-list">
-                            <div class="blessing-placeholder">✨ No blessings yet. Be the first! ✨</div>
+                            <a
+                                class="route-link-btn"
+                                href="https://www.google.com/maps/dir/?api=1&destination=12.755061,75.124859"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="fab fa-google"></i>
+                                Open Google Maps
+                            </a>
+                            <p class="maps-note">Opens Google Maps with turn-by-turn navigation</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Location Section -->
-        <section id="location" class="location">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">Find Your Way</span>
-                    <h2 class="section-title">Reach Our Home</h2>
-                    <p class="section-subtitle">We can't wait to welcome you</p>
-                </div>
-                
-                <div class="location-grid">
-                    <div class="location-card">
-                        <div class="location-icon">🏠</div>
-                        <h3>Venue Address</h3>
-                        <p>1Kanthmoole Madatharu House,Vittal</p>
-                        <div class="timing-badge">🕊️ 11:00 AM - 8:00 PM</div>
+            <!-- Family Tree Section -->
+            <section id="familytree" class="familytree-section">
+                <div class="section-container">
+                    <div class="section-header">
+                        <span class="section-tag"><i class="fas fa-tree"></i> Our Sacred Lineage</span>
+                        <h2 class="section-title">Family Tree</h2>
+                        <p class="section-subtitle">Generations of love, blessings, and togetherness</p>
                     </div>
                     
-                    <div class="location-card">
-                        <div class="location-icon">🗺️</div>
-                        <h3>Travel Assistant</h3>
-                        <div id="etaDisplay" class="eta-display">
-                            <div class="eta-placeholder">Click below to see distance & travel time</div>
+                    <div class="family-tree-container">
+                        <!-- Grandparents -->
+                        <div class="tree-node grandparents-node">
+                            <div class="tree-card">
+                                <div class="tree-card-inner">
+                                    <div class="tree-avatar">
+                                        <img src="assets/images/ajja-ajji1.jpeg" alt="Grandparents">
+                                    </div>
+                                    <div class="tree-icon"><i class="fas fa-crown"></i></div>
+                                    <div class="tree-relation">Grandparents</div>
+                                    <div class="tree-names">
+                                        <span class="name">Late Sri. Shrinappa Gowda</span>
+                                        <span class="relation">&</span>
+                                        <span class="name">Late Smt. Poovakka</span>
+                                    </div>
+                                    <div class="tree-blessing"><i class="fas fa-pray"></i> Our Roots</div>
+                                </div>
+                            </div>
                         </div>
-                        <button class="btn btn-primary btn-large" id="travelBtn">
-                            <span class="btn-icon">🧭</span>
-                            Get Turn-by-Turn Directions
-                        </button>
-                        <p class="location-note">Opens Google Maps with live navigation</p>
+                        
+                        <div class="tree-connector main-connector">
+                            <div class="connector-line"></div>
+                            <div class="connector-arrow arrow-down">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="connector-dot"></div>
+                        </div>
+                        
+                        
+                        <!-- Parents -->
+                        <div class="tree-node parents-node">
+                            <div class="tree-card">
+                                <div class="tree-card-inner">
+                                    <div class="tree-avatar">
+                                        <img src="assets/images/appa-amma.jpeg" alt="Parents">
+                                    </div>
+                                    <div class="tree-icon"><i class="fas fa-home"></i></div>
+                                    <div class="tree-relation">Parents</div>
+                                    <div class="tree-names">
+                                        <span class="name">Sri. Vinod Gowda</span>
+                                        <span class="relation">&</span>
+                                        <span class="name">Smt. Gowri</span>
+                                    </div>
+                                    <div class="tree-blessing"><i class="fas fa-heart"></i> Our Strength</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tree-connector branch-connector">
+                            <div class="connector-line branch-center-line"></div>
+                            <div class="connector-arrow arrow-down branch-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="branch-left"></div>
+                            <div class="branch-right"></div>
+                            <div class="connector-arrow arrow-left">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="connector-arrow arrow-right">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="connector-dot center-dot"></div>
+                        </div>
+                        
+                        <!-- Children -->
+                        <div class="tree-children">
+                            <div class="tree-child">
+                                <div class="tree-card">
+                                    <div class="tree-card-inner">
+                                        <div class="tree-avatar">
+                                            <img src="assets/images/anna.jpeg" alt="Prajwal">
+                                        </div>
+                                        <div class="tree-icon"><i class="fas fa-child"></i></div>
+                                        <div class="tree-relation">Son</div>
+                                        <div class="tree-names">
+                                            <span class="name">Chi. Prajwal M T</span>
+                                        </div>
+                                        <div class="tree-blessing"><i class="fas fa-star"></i> Our Pride</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tree-child">
+                                <div class="tree-card">
+                                    <div class="tree-card-inner">
+                                        <div class="tree-avatar">
+                                            <img src="assets/images/Disha.jpeg" alt="Disha">
+                                        </div>
+                                        <div class="tree-icon"><i class="fas fa-female"></i></div>
+                                        <div class="tree-relation">Daughter</div>
+                                        <div class="tree-names">
+                                            <span class="name">Kum.Disha M T</span>
+                                        </div>
+                                        <div class="tree-blessing"><i class="fas fa-flower"></i> Our Joy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
-                    
+                    <div class="family-motto">
+                        <div class="motto-text">
+                            <i class="fas fa-om"></i> Together in love, united in blessings <i class="fas fa-dharmachakra"></i>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-logo">🪷 Gruhapravesh 2025</div>
-                <p>With gratitude to our loved ones who make this journey special</p>
-                <div class="footer-divider"></div>
-                <p class="footer-copyright">© 2025 | Built with ❤️ for family & friends</p>
-            </div>
-        </footer>
-    </main>
-
-    <!-- Fullscreen Gallery Modal -->
-    <div id="galleryModal" class="gallery-modal">
-        <button class="modal-close">&times;</button>
-        <button class="modal-prev">❮</button>
-        <button class="modal-next">❯</button>
-        <img class="modal-image" id="modalImage" alt="Gallery fullscreen">
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-logo">🪷 Disha's Gruhapravesh 2026</div>
+                    <p>With gratitude to our loved ones who make this journey special</p>
+                    <div class="footer-divider"></div>
+                    <div class="social-links">
+                        <i class="fas fa-heart"></i> Made with Love for Family & Friends <i class="fas fa-heart"></i>
+                    </div>
+                    <p class="copyright">© 2026 | All Rights Reserved</p>
+                </div>
+            </footer>
+        </main>
     </div>
 
     <script src="js/script.js"></script>

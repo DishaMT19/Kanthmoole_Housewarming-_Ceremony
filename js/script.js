@@ -191,28 +191,12 @@ function initTypewriter() {
     if (!target) return;
 
     let messageIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+    target.textContent = CONFIG.typeMessages[messageIndex];
 
-    const tick = () => {
-        const current = CONFIG.typeMessages[messageIndex];
-        charIndex += deleting ? -1 : 1;
-        target.textContent = current.slice(0, charIndex);
-
-        let delay = deleting ? 45 : 85;
-        if (!deleting && charIndex === current.length) {
-            delay = 1400;
-            deleting = true;
-        } else if (deleting && charIndex === 0) {
-            deleting = false;
-            messageIndex = (messageIndex + 1) % CONFIG.typeMessages.length;
-            delay = 350;
-        }
-
-        window.setTimeout(tick, delay);
-    };
-
-    tick();
+    window.setInterval(() => {
+        messageIndex = (messageIndex + 1) % CONFIG.typeMessages.length;
+        target.textContent = CONFIG.typeMessages[messageIndex];
+    }, 2400);
 }
 
 function pulseCountdownItem(element) {

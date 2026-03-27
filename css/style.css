@@ -624,7 +624,10 @@ body {
     text-align: center;
     max-width: 950px;
     z-index: 2;
-    animation: fadeInUp 1s ease-out;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    animation: none;
 }
 
 @keyframes fadeInUp {
@@ -1594,6 +1597,7 @@ section,
     color: var(--gold-primary);
     font-weight: 700;
     letter-spacing: 0.02em;
+    opacity: 1;
 }
 
 .typewriter-cursor {
